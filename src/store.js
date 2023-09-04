@@ -17,9 +17,9 @@ const store = new Vuex.Store({
             return state.isUserListVisible;
         },
 
-        toggleUserList: (state) => {
-            return state.toggleUserList;
-        },
+        // toggleUserList: (state) => {
+        //     return state.toggleUserList;
+        // },
     }
 });
 

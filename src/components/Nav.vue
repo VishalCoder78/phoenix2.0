@@ -1,15 +1,28 @@
 <script>
-import { Cog8ToothIcon, Bars3Icon, EnvelopeIcon, QuestionMarkCircleIcon, PlayIcon, XCircleIcon} from '@heroicons/vue/24/solid'
+import { Cog8ToothIcon, Bars3Icon, EnvelopeIcon, QuestionMarkCircleIcon, PlayIcon, XCircleIcon } from '@heroicons/vue/24/solid'
 
 export default {
-  components: {
-    Cog8ToothIcon,
-    Bars3Icon,
-    EnvelopeIcon,
-    QuestionMarkCircleIcon,
-    PlayIcon,
-    XCircleIcon
-  }
+    components: {
+        Cog8ToothIcon,
+        Bars3Icon,
+        EnvelopeIcon,
+        QuestionMarkCircleIcon,
+        PlayIcon,
+        XCircleIcon
+    },
+
+    methods: {
+        toggleUserList() {
+            this.$store.commit('toggleUserList')
+        }
+    },
+
+
+    computed: {
+        isUserListVisible() {
+            return this.$store.state.isUserListVisible;
+        }
+    }
 }
 </script>
 <template>
@@ -36,9 +49,9 @@ export default {
                 </button>
             </div>
         </div>
-        <div class="nav-cross">
+        <div v-if="isUserListVisible" class="nav-cross">
             <button class="bg-gradient-to-b from-yellow-700 to-yellow-500 p-2 mt-1 rounded-md mx-1">
-                <XCircleIcon class="h-6 w-6 text-white" />
+                <XCircleIcon @click="toggleUserList" class="h-6 w-6 text-white" />
             </button>
         </div>
     </div>
